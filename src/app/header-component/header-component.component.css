@@ -2,8 +2,11 @@ img {
   max-width: 40px;
 }
 
-.mat-toolbar a{
+a{
   text-decoration: none;
+}
+
+.mat-toolbar a{
   color: black;
   padding: 1rem;
 }
@@ -16,17 +19,25 @@ img {
   padding: 1rem;
 }
 
-.row::after{
- content: "";
- display: table;
- clear:both;
+.header {
+  background-color: darkcyan;
+  font-weight: 900;
 }
-.column {
-  float: left;
-  width: 50%;
-  padding: 10px;
+.header .button{
+  font-weight: bold;
 }
 
-.header {
-  background-color: aquamarine;
+.group a{
+  padding: 1rem;
 }
+
+.group .mat-menu-item{
+  text-align: left;
+}
+
+/* Dropdown not using Angular Material Menu*/
+ .container {
+  border: 2px red solid;
+  border-style: ridge;
+  width: 20%;
+} 

@@ -1,7 +1,7 @@
 <div>
 <mat-toolbar>  
     <button mat-button><a href="/">Home</a></button>
-    <button mat-button [matMenuTriggerFor]="projectMenu">Go to Projects</button>
+    <button mat-button [matMenuTriggerFor]="projectMenu" (click)="clearInput()">Go to Projects</button>
     <button mat-button><a href="/products">Products</a></button>
 </mat-toolbar>
 </div>
@@ -27,3 +27,39 @@
 </mat-grid-list>
 </div>
 </mat-menu>
+
+
+
+<!-- 
+  WIP. Dropdown without Angular-menu
+  <button (click)="opendrop()">Go to Projects</button>
+<div [hidden] = "dropdownmenu">
+  <div class="container">
+  <input type="text" placeholder="Search..." [(ngModel)]="inputFilter" (input) = "filterGroups()" />
+  <div *ngFor = 'let one of arrFiltered, index as k'>
+  <mat-grid-list cols="3" rowHeight="1:0.5" gutterSize="5px">
+    <mat-grid-tile colspan="1">
+      <img src={{one.image.link}} alt="doggo!">
+</mat-grid-tile>
+<mat-grid-tile colspan="2">
+   <div class="header"> 
+  <button mat-menu-item [innerHtml]="one.name | highlight: inputFilter"></button>
+   </div> 
+</mat-grid-tile>
+
+<div *ngFor = 'let group of arrFiltered[k].groups, index as i'>
+  <mat-grid-tile></mat-grid-tile>
+<mat-grid-tile colspan="2">
+  <div class = "group">
+  <button mat-menu-item ><a href={{group.url}} [innerHtml]="group.name | highlight: inputFilter" ></a></button>
+</div>
+</mat-grid-tile>
+</div>
+  <mat-grid-tile></mat-grid-tile> 
+  <mat-grid-tile colspan="2"><button mat-menu-item>+ add project</button></mat-grid-tile> 
+
+</mat-grid-list>
+</div>
+ </div>  
+</div>
+ -->

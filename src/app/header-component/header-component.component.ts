@@ -1,4 +1,4 @@
-import { Component, OnInit,} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Fetcher} from '../services/fetch'
 
 
@@ -11,17 +11,10 @@ import {Fetcher} from '../services/fetch'
 
 export class HeaderComponentComponent implements OnInit {
   
-
-  dropdown = {'border': '2px red solid',
-              'position': 'relative',
-              'display': 'inline-block'}
- 
-
   arrSystems: any[] = [];  
-  arrFiltered :any[] =[];
- 
+  arrFiltered :any[] =[]; 
   inputFilter: any;
-  
+  dropdownmenu:boolean = true;  
   
   constructor(private fetchData: Fetcher) { }
 
@@ -35,6 +28,10 @@ export class HeaderComponentComponent implements OnInit {
       this.arrFiltered = this.arrSystems;
     });
 }
+  //WIP
+opendrop(){
+  this.dropdownmenu = !this.dropdownmenu;    
+}
 
   filterGroups(){    
     
@@ -42,7 +39,13 @@ export class HeaderComponentComponent implements OnInit {
        return {...e, groups: e.groups.filter((group:any) => group.name.toLowerCase().includes(this.inputFilter.toLowerCase()))}      
     })
     }
+      //cleans input after menu closes. Ensures data is populated again when open.
+    clearInput(){      
+      this.inputFilter = '';
+      this.arrFiltered = this.arrSystems;
+    }
 
+      // Needs to change.. Blocking input once Highlight pipe activates.
     stopPropagation(event: any){
       event.stopPropagation();
     }
